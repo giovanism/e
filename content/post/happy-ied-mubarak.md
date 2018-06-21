@@ -21,7 +21,7 @@ Happy Ied Mubarak for those who performed shaum as well as those who didn't.
 
 <!--more-->
 
-I want to apologize to everyone that I wasn't able to apologise directly or sooner than when I published this post. Social media or broadcast message have never been a place for me to give official statement or personal message. What I had done in the past was to give my sincere apology through direct greeting or at least physical proof.
+I want to apologize to everyone that I wasn't able to apologize directly or sooner than when I published this post. Social media or broadcast message have never been a place for me to give official statement or personal message. What I had done in the past was to give my sincere apology through direct greeting or at least physical proof.
 
 But this year is different, there are those I hold dear, family and friends alike I can't get my apology to them like before. I've always been clumsy at online communications and the likes. So, I am trying to improve on those. And, I recently put up this [simple site](/) to place my writing from here on.
 
