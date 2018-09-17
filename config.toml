@@ -1,4 +1,4 @@
-baseURL = "http://giovanism.github.io/" # Controls base URL
+baseURL = "https://giovanis.me/" # Controls base URL
 languageCode = "en-us" # Controls site language
 title = "giovanism" # Homepage title and page title suffix
 paginate = 11 # Number of posts to show before paginating
