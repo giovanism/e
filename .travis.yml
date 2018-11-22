@@ -7,15 +7,17 @@ os:
 stages:
   - name: deploy
     if: branch = master
+before_install:
+  - sudo apt-get update -y
+install:
+  - go get github.com/gohugoio/hugo
+script:
+  - hugo
+before_deploy:
+  - echo $SSH_PUBLIC_KEY >> $HOME/.ssh/known_hosts
+  - sudo apt-get install -y rsync
 deploy:
   - provider: script
     script: bash deploy.sh
     on:
       branch: master
-script:
-  - hugo
-install:
-  - echo $SSH_PUBLIC_KEY >> $HOME/.ssh/known_hosts
-  - sudo apt-get update -y
-  - sudo apt-get install -y rsync
-  - go get github.com/gohugoio/hugo
