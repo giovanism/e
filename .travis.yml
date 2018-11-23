@@ -2,22 +2,35 @@ language: go
 dist: trusty
 go:
   - 1.11
+
 os:
   - linux
+
 stages:
   - name: deploy
     if: branch = master
+
 before_install:
   - sudo apt-get update -y
+
 install:
   - go get github.com/gohugoio/hugo
+
 script:
   - hugo
+
 before_deploy:
+  - openssl aes-256-cbc -K $encrypted_cacfb67d0357_key -iv $encrypted_cacfb67d0357_iv
+    -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+  - eval "$(ssh-agent -s)"
+  - chmod 600 /tmp/deploy_rsa
+  - ssh-add /tmp/deploy_rsa
   - echo $SSH_PUBLIC_KEY >> $HOME/.ssh/known_hosts
   - sudo apt-get install -y rsync
+
 deploy:
   - provider: script
-    script: bash deploy.sh
+    skip_cleanup: true
+    script: rsync -avz --delete-after --rsh=ssh $TRAVIS_BUILD_DIR/public/ $DEPLOY_TARGET
     on:
       branch: master
