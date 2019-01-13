@@ -10,6 +10,8 @@ googleAnalytics = "" # Optional, add tracking Id for analytics
 disqusShortname = "" # Optional, add Disqus shortname for comments
 SectionPagesMenu = "main" # Enable menu system for lazy bloggers
 footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
+pygmentsCodefences = true # Suggested, highlight fenced code blocks
+pygmentsUseClasses = true # Required for custom syntax highlighting
 
 [params]
   description = "simple, handy, and convenient" # Suggested, controls default description meta
