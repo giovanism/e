@@ -30,4 +30,11 @@ pygmentsUseClasses = true # Required for custom syntax highlighting
     name = "Home"
     title = "Homepage"
     url = "/"
-    weight = 0
+    weight = 1
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    title = "About me"
+    url = "/about/"
+    weight = 5
