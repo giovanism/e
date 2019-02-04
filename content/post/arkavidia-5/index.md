@@ -10,12 +10,15 @@ images = [
   "images/arkavidia5ctf.svg"
 ] # overrides the site-wide open graph image
 
+[[resources]]
+  name = "arkavidia5ctf"
+  src = "images/arkavidia5ctf.svg"
+
 +++
 
-{{< figure 
-  src="images/arkavidia5ctf.svg"
-  alt="CTF logo"
-  title="Arkavidia 5 CTF"
+{{<resfigure 
+    src="arkavidia5ctf"
+    alt="Arkavidia 5 CTF"
 >}}
 
 These are write-ups for some of the challenges that I solved during the Quals.
