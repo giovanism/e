@@ -2,7 +2,7 @@
 title = "About me"
 date = 2019-01-30T08:44:01+07:00
 description = ""
-draft = true
+draft = false
 +++
 
 > Computer Science, somewhat unfaithful cult of vi member,<br/>
