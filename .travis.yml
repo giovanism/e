@@ -11,7 +11,7 @@ stages:
     if: branch = master
 
 install:
-  - go get github.com/gohugoio/hugo
+  - go get -v github.com/gohugoio/hugo
 
 script:
   - hugo
