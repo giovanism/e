@@ -1,7 +1,7 @@
 language: go
-dist: trusty
+dist: xenial
 go:
-  - 1.11
+  - 1.12
 
 os:
   - linux
@@ -9,9 +9,6 @@ os:
 stages:
   - name: deploy
     if: branch = master
-
-before_install:
-  - sudo apt-get update -y
 
 install:
   - go get github.com/gohugoio/hugo
