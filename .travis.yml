@@ -28,6 +28,6 @@ before_deploy:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: rsync -avz --delete-after --rsh=ssh $TRAVIS_BUILD_DIR/public/ $DEPLOY_TARGET
+    script: rsync -avz --quiet --delete-after --rsh=ssh $TRAVIS_BUILD_DIR/public/ $DEPLOY_TARGET
     on:
       branch: master
