@@ -3,7 +3,17 @@ title = "About me"
 date = 2019-01-30T08:44:01+07:00
 description = ""
 draft = false
+
+[[resources]]
+  name = "avatar"
+  src = "lucifer.jpg"
 +++
+
+{{<resfigure 
+    src="avatar"
+    alt="My Avatar"
+    caption="My signature avatar"
+>}}
 
 > Computer Science, somewhat unfaithful cult of vi member,<br/>
 > Can't say that I am a self-proclaimed NEET anymore.<br />
