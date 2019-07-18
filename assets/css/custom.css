@@ -61,3 +61,7 @@ a[itemprop="url"]:hover {
     font-style: normal;
     font-family: 'FantasqueSansMonoRegular',Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
 }
+
+code,pre {
+  line-height: 0;
+}
