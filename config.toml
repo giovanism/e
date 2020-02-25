@@ -24,6 +24,8 @@ pygmentsUseClasses = true # Required for custom syntax highlighting
   ] # Suggested, controls default Open Graph images
   theme_variant = "" # Optional, for use to overriding default theme
 
+[params.layout]
+
 [menu]
   [[menu.main]]
     identifier = "home"
