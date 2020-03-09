@@ -47,3 +47,8 @@ pygmentsUseClasses = true # Required for custom syntax highlighting
     title = "About me"
     url = "/about/"
     weight = 5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      typographer = false
