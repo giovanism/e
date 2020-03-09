@@ -3,10 +3,13 @@ languageCode = "en-us" # Controls site language
 title = "giovanism" # Homepage title and page title suffix
 paginate = 11 # Number of posts to show before paginating
 
-theme = "after-dark" # Set default theme
+theme = [
+  "fractal-forest",
+  "after-dark"
+]
 
 enableRobotsTXT = true # Suggested, enable robots.txt file
-googleAnalytics = "" # Optional, add tracking Id for analytics
+googleAnalytics = "UA-159117526-1" # Optional, add tracking Id for analytics
 disqusShortname = "" # Optional, add Disqus shortname for comments
 # sectionPagesMenu = "main" # Enable menu system for lazy bloggers
 footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
@@ -25,6 +28,10 @@ pygmentsUseClasses = true # Required for custom syntax highlighting
   theme_variant = "" # Optional, for use to overriding default theme
 
 [params.layout]
+
+[params.modules.fractal_forest]
+  enabled = true # Optional, set false to disable module
+  decoders = ["bpgdec8a"] # Optional, 8-bit javascript decoder with animation
 
 [menu]
   [[menu.main]]
