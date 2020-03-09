@@ -70,7 +70,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
       </noscript>
     {{ end }}
     {{ if not (in (.Site.BaseURL | string) "localhost") }}
-      {{ template "_internal/google_analytics_async.html" . }}
+      {{ template "_internal/google_analytics.html" . }}
     {{ end }}
   </head>
   {{ $hackcss_disabled := .Site.Params.hackcss.disabled | default false }}
