@@ -33,6 +33,11 @@ images = [
   src = "images/gigas-chedar.webp"
   title = "[REVIEW] Pembahasan Sword Art Online Alicization Episode 4: Tumbangnya Pohon Gigas Cedar"
 
+[[resources]]
+  name = "trunk1b"
+  src = "images/trunk1b.png"
+  title = "Scaled Trunk-Based Development"
+
 +++
 
 {{<resfigure
@@ -168,6 +173,14 @@ trunk with the use of Feature Flags (Feature Toggle). This is useful to develop
 large work in progress feature together alongside the other feature in the trunk
 branch.
 
+{{<resfigure
+  alt="Scaled Trunk-Based Development Graph"
+  src="trunk1b"
+  title="Scaled Trunk Based Development"
+  attr="trunkbaseddevelopment.com"
+  attrlink="https://trunkbaseddevelopment.com/"
+>}}
+
 Some rule of thumbs of when to integrate Pull/Merge Request to the trunk is:
 1. It is possible to squash+merge it back to the trunk
 2. It is already reviewed
@@ -175,22 +188,51 @@ Some rule of thumbs of when to integrate Pull/Merge Request to the trunk is:
 
 To avoid breaking changes and conflict, developer will need to learn best ways
 to sync (integrate) changes from the trunk to feature branch. Learn what rebase
-is, when to rebase, and how to do it when appropriate.
+is, when to rebase, and how to do it when appropriate. This does demand even
+more from the developer's skillset besides implementing feature, creating
+rigorous testing, that is writing maintainable and backward compatible code.
+
+## What we actually do
 
 Unfortunately, we dont implement Trunk Based Development in our software
-engineering course. There are some requirements for scoring the system and the
-lecturer team mandates every group to implement a variant of Git Flow branching
-model.
+engineering course. In my software engineering course we try to implement SCRUM
+agile software development methodology. There are some requirements for the
+scoring system and the lecturer team mandates every group to implement a variant
+of Git Flow branching model. Our project are split into PBIs (Project Backlog
+Item). PBI is a unit of tangible progress/product that can be used by the
+user/client. These PBIs are broken down even more into tasks that can tackled
+down by one person.
+
+There are a lot of things that don't go with my ideal, there are lots of 'em. I
+want to stop at the previous sentence, but people won't get what I meant unless
+I written them down here.
+
+Fear of reverting Merge Request if they don't comply with client's standard? Why
+bother? This will only apply with breaking changes. Incremental changes doesn't
+need to be reverted. I want to merge into staging and share my core for all I
+care.
+
+I want to get rid of feature dependency across PBIs. Why? Each sprint can have
+multiple PBIs. Previously we work on different PBIs concurrently. We might have
+done it wrong, though. How about we work on one PBI before moving to another
+PBI? This way we can implement "small" Trunk Based Development using each PBI's
+branch as the trunk.
+
+Okay, now you are tired of me ranting here instead of actually giving you
+content and entertainment. Sorry, this will part will be end soon. I believe
+there are difference between compromises vs half-assed attempt. So, wish me luck
+on my compromise attempt.
 
 ## Git Fundamentals: Anantomy of a commit
 
-Okay, so lets get to the fundamental. This topic is different from before that
-I rarely care about this nitty-gritty details on my daily `git commit` and `git
-merge` daily routine. However, by understanding this concept I hope you will
-gain mechanical sympathy. Mechanical Sympathy? What new viral virus is that?
+Okay, to next content. Now lets get to the fundamental. This topic is different
+from before that I rarely care about this nitty-gritty details on my daily
+`git commit` and `git rebase` daily routine. However, by understanding this
+concept I hope you will gain the so-called mechanical sympathy. Mechanical
+Sympathy? What new viral virus is that?
 
 {{<blockquote
-  text="You don't have to be an engineer to be be a racing driver, but you do have to have Mechanical Sympathy."
+  text="You don't have to be an engineer to be a racing driver, but you do have to have Mechanical Sympathy."
   cite="Jackie Stewart, racing driver "
   citelink="https://wa.aws.amazon.com/wat.concept.mechanical-sympathy.en.html"
 />}}
@@ -199,6 +241,7 @@ gain mechanical sympathy. Mechanical Sympathy? What new viral virus is that?
   text="Mechanical sympathy is when you use a tool or system with an understanding of how it operates best. When you understand how a system is designed to be used, you can align with the design to gain optimal performance. For example, if you know that a certain type of memory is more efficient when addresses are multiples of a factor, you can optimize your performance by using data structure alignment."
   citelink="https://wa.aws.amazon.com/wat.concept.mechanical-sympathy.en.html"
 />}}
+
 
 [three-little-trees]: https://speakerdeck.com/schacon/a-tale-of-three-trees
 [git-handbook]: https://medium.com/@reyhanhamidi/buku-saku-git-cheatsheet-git-bahasa-indonesia-3af42e42156e
