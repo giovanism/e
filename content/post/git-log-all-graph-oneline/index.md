@@ -23,6 +23,16 @@ images = [
   src = "images/git-log-output.png"
   title = "git --log --graph --oneline"
 
+[[resources]]
+  name = "winnie-the-pooh"
+  src = "images/winnie-the-pooh.jpg"
+  title = "Winnie The Pooh Approve's `git switch`"
+
+[[resources]]
+  name = "gigas-chedar"
+  src = "images/gigas-chedar.webp"
+  title = "[REVIEW] Pembahasan Sword Art Online Alicization Episode 4: Tumbangnya Pohon Gigas Cedar"
+
 +++
 
 {{<resfigure
@@ -52,9 +62,10 @@ bear with me on this wild ride. Deciding which part to tell first is as hard as
 deciding what I want to write about. So I dont really plan what I'm going to
 write.
 
-> NOTE: This article assume that the reader already has some familiarity with git
-> version control system
-
+> NOTE: This article assume that the reader already has some familiarity with
+> git version control system.
+> You can go read [A Tale of Three Trees](three-little-trees) or my friend's
+> awesome [Git Handbook](git-handbook) in Indonesian first.
 
 ## git log
 
@@ -69,6 +80,7 @@ compare.
 | command   | n   |
 | --------- | --- |
 | status    | 582 |
+| add       | 266 |
 | commit    | 168 |
 | log       | 130 |
 | switch    | 126 |
@@ -78,6 +90,7 @@ compare.
 | pull      |  40 |
 | reset     |  37 |
 | fetch     |  30 |
+| remote    |  26 |
 | merge     |  25 |
 | init      |   2 |
 
@@ -102,30 +115,90 @@ site's repo is this.
   title="git log --all --graph --oneline"
 >}}
 
-Notice the decorations added in some commit hashes. It will show you not only
+Notice the decorations added after some commit hashes. It will show you not only
 your current local branch but all branches tracked by git. This command is very
-usefull for me to keep tracks of my local changes against whatever is in the
+usefull for me to keep tracks of my local changes against whatever it is in the
 `origin/master` branch or what my team member has pushed to their own branches.
 
-Now you may ask, "Why don't we use the GUI version?". There aren't any real
+Now you may ask, "Why don't we use the GUI version?". There aren't many real
 difference with the GUI version. I use git cli more than any other git client.
 Even despite BitBucket and GitLab very beautiful graph view mode. The only
 exception is when VS Code's interactive `--patch` operation comes in really
 handy that I will avoid using the cli version.
 
-Here's the honorable mentions. Another variants I want to share with you is the
-little `git log -<n>` version. Not the `git log -n <n>` variants. It will saves
-you a few keystrokes without relying on aliases. Another one I often check is
-the `git log --show-signature` command. In simple explanation, this command will
-show you the verified gpg sign of your commit. This one became a habit since
-all CNCF organizations have CLA (Contributors License Aggreement) that mandates
-every commit to be gpg signed.
+{{<resfigure
+  alt="Winnie The Pooh meme formatted git switch vs git checkout"
+  src="winnie-the-pooh"
+  title="Classy Winnie The Pooh Approving `git switch` command"
+>}}
+
+Here's some of the the honorable mentions. Another variants I want to share with
+you is the little `git log -<n>` version. Not the `git log -n <n>` variants. It
+will saves you a few keystrokes without relying on aliases. Another one I often
+check is the `git log --show-signature` command. In simple explanation, this
+command will show you the verified gpg sign of your commit. This one became a 
+habit since all CNCF organizations have CLA (Contributor License Aggreement)
+that mandates every commit to be gpg signed.
+
+## Trunk Based Development
+
+Have I told you how much I love Trunk Based Development compared to the usual
+Git Flow branching model?
+
+{{<resfigure
+  alt="[REVIEW] Pembahasan Sword Art Online Alicization Episode 4: Tumbangnya Pohon Gigas Cedar"
+  src="gigas-chedar"
+  title="Fallen Gigas Chedar Tree"
+  attr="Dunia Games"
+  attrlink="https://redeem.duniagames.co.id/news/9862-review-pembahasan-sword-art-online-alicization-episode-4-tumbangnya-pohon-gigas-cedar/"
+>}}
+
+Impressive trunk isn't it? The boring explanation is this. Trunk Based
+Development is a source-control branching model, where the main development,
+commits, and pull requests occurs at a single branch called the "trunk". This
+development model promises avoiding merge hell, broken build, and nicer output
+when using the `git log --all --graph --oneline` (Yup, I do care about this
+aspect).
+
+This way feature branches are short-lived and become subject to code reviews
+and build checking using CI, but not the artifact creation or publication such
+as pushing to package repository or container registry. One of the arguments is
+faster feedback loop through code review and faster integration back to the
+trunk with the use of Feature Flags (Feature Toggle). This is useful to develop
+large work in progress feature together alongside the other feature in the trunk
+branch.
+
+Some rule of thumbs of when to integrate Pull/Merge Request to the trunk is:
+1. It is possible to squash+merge it back to the trunk
+2. It is already reviewed
+3. It passed automated tests against the trunk
+
+To avoid breaking changes and conflict, developer will need to learn best ways
+to sync (integrate) changes from the trunk to feature branch. Learn what rebase
+is, when to rebase, and how to do it when appropriate.
+
+Unfortunately, we dont implement Trunk Based Development in our software
+engineering course. There are some requirements for scoring the system and the
+lecturer team mandates every group to implement a variant of Git Flow branching
+model.
 
 ## Git Fundamentals: Anantomy of a commit
 
 Okay, so lets get to the fundamental. This topic is different from before that
-I rarely care about this nitty-gritty details. However, by understanding this
-you will gain mechanical sympathy. Mechanical Sympathy? What new viral virus is
-that?
+I rarely care about this nitty-gritty details on my daily `git commit` and `git
+merge` daily routine. However, by understanding this concept I hope you will
+gain mechanical sympathy. Mechanical Sympathy? What new viral virus is that?
 
-> To be continued
+{{<blockquote
+  text="You don't have to be an engineer to be be a racing driver, but you do have to have Mechanical Sympathy."
+  cite="Jackie Stewart, racing driver "
+  citelink="https://wa.aws.amazon.com/wat.concept.mechanical-sympathy.en.html"
+/>}}
+
+{{<blockquote
+  text="Mechanical sympathy is when you use a tool or system with an understanding of how it operates best. When you understand how a system is designed to be used, you can align with the design to gain optimal performance. For example, if you know that a certain type of memory is more efficient when addresses are multiples of a factor, you can optimize your performance by using data structure alignment."
+  citelink="https://wa.aws.amazon.com/wat.concept.mechanical-sympathy.en.html"
+/>}}
+
+[three-little-trees]: https://speakerdeck.com/schacon/a-tale-of-three-trees
+[git-handbook]: https://medium.com/@reyhanhamidi/buku-saku-git-cheatsheet-git-bahasa-indonesia-3af42e42156e
