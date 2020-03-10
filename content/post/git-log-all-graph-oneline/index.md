@@ -38,6 +38,11 @@ images = [
   src = "images/trunk1b.png"
   title = "Scaled Trunk-Based Development"
 
+[[resources]]
+  name = "tree-object"
+  src = "images/tree-object.png"
+  title = "Git Tree Object Structure"
+
 +++
 
 {{<resfigure
@@ -242,6 +247,31 @@ Sympathy? What new viral virus is that?
   citelink="https://wa.aws.amazon.com/wat.concept.mechanical-sympathy.en.html"
 />}}
 
+For now, just take it as it is.
+
+This is how git keep track of commits integrity.
+
+```
+sha1(
+    commit message  => "second commit"
+    committer        => Christoph Burgdorf <christoph.burgdorf@gmail.com>
+    commit date     => Sat Nov 8 11:13:49 2014 +0100
+    author          => Christoph Burgdorf <christoph.burgdorf@gmail.com>
+    author date     => Sat Nov 8 11:13:49 2014 +0100
+    tree            => 9c435a86e664be00db0d973e981425e4a3ef3f8d
+    parents         => [0d973e9c4353ef3f8ddb98a86e664be001425e4a]
+)
+```
+
+{{<resfigure
+  alt="git's tree object"
+  src="tree-object"
+  title="Git's Tree Object Structure"
+  attr="Scott Chacon"
+  attrlink="https://speakerdeck.com/schacon/a-tale-of-three-trees?slide=13"
+>}}
+
+> To be continued
 
 [three-little-trees]: https://speakerdeck.com/schacon/a-tale-of-three-trees
 [git-handbook]: https://medium.com/@reyhanhamidi/buku-saku-git-cheatsheet-git-bahasa-indonesia-3af42e42156e
