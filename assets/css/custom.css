@@ -56,12 +56,19 @@ a[itemprop="url"]:hover {
     font-style: normal;
       }
 
-.hack, .hack blockquote, .hack code, .hack em, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6, .hack strong {
-    font-size: 1rem;
-    font-style: normal;
-    font-family: 'FantasqueSansMonoRegular',Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+.hack, .hack blockquote, .hack em, .hack strong {
+  font-family: Zilla Slab, Roboto Slab, Georgia, Times, serif;
 }
 
-code,pre {
+.hack code, .hack pre, .hack h1, .hack h2, .hack h3, .hack h4, .hack h5, .hack h6 {
+  font-family: Fantasque Sans Mono, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.hack h1, .hack h2 {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+code, pre {
   line-height: 0;
 }
