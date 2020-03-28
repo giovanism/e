@@ -113,9 +113,9 @@ it's three flag does.
 $ git log --all --graph --oneline
 ```
 
-The `--all` flag tell git to show commits from local and every remote branches.
-The `--graph` flag tell git to show commits as graph, connecting commits with
-their parrents. And lastly, the `--oneline` flag will tell git to show commit
+The `--all` flag tells git to show commits from local and every remote branches.
+The `--graph` flag tells git to show commits as graph, connecting commits with
+their parrents. And lastly, the `--oneline` flag will tells git to show commit
 logs in oneline pretty format. The result of running this command against this
 site's repo is this.
 
@@ -230,11 +230,15 @@ on my compromise attempt.
 
 ## Git Fundamentals: Anantomy of a commit
 
-Okay, to next content. Now lets get to the fundamental. This topic is different
-from before that I rarely care about this nitty-gritty details on my daily
+Okay, next content. Now lets get to the fundamental. This topic is different
+from before that I rarely care about this nitty-gritty details on day-to-day
 `git commit` and `git rebase` daily routine. However, by understanding this
 concept I hope you will gain the so-called mechanical sympathy. Mechanical
-Sympathy? What new viral virus is that?
+Sympathy? What new viral virus is that? I heard this concept for the first time
+in an amazing talk by [Kurniagusta Dwinto][win-t] about [Advanced jenkins :
+Create plugin to auto scale worker agent][jenkins-talk]. Too bad that the slide
+doesn't give much exposition about the concept by itself. For now, just swallow
+these random quotes as they are.
 
 {{<blockquote
   text="You don't have to be an engineer to be a racing driver, but you do have to have Mechanical Sympathy."
@@ -247,14 +251,19 @@ Sympathy? What new viral virus is that?
   citelink="https://wa.aws.amazon.com/wat.concept.mechanical-sympathy.en.html"
 />}}
 
-For now, just take it as it is.
+On this take on git fundamentals, I want to try explaining things from top to
+bottom.
 
-This is how git keep track of commits integrity.
+In its simplest form, a commit record a single version of the project directory.
+We can identify versions using their commit hash. The hashes might look alike to
+this `f4f78b319c308600eab015a5d6529add21660dc1`. Hashes like this is generated
+using SHA-1 algorithm. Now, this might make you wonder what are the inputs for
+the commit hash? This pseudocode below might give you some idea.
 
 ```
 sha1(
     commit message  => "second commit"
-    committer        => Christoph Burgdorf <christoph.burgdorf@gmail.com>
+    committer       => Christoph Burgdorf <christoph.burgdorf@gmail.com>
     commit date     => Sat Nov 8 11:13:49 2014 +0100
     author          => Christoph Burgdorf <christoph.burgdorf@gmail.com>
     author date     => Sat Nov 8 11:13:49 2014 +0100
@@ -262,6 +271,12 @@ sha1(
     parents         => [0d973e9c4353ef3f8ddb98a86e664be001425e4a]
 )
 ```
+
+This pseudocode is borrowed from [here][sha1-pseudocode]. As we can see, besides
+the project directory, represented by `tree`, git also record other metadata
+such as commit message to generate the commit hash. Are they all? Oh no, I dont
+think they are all. However, I also dont know the complete list. Remember the
+gpg signed commit I mentioned above.
 
 {{<resfigure
   alt="git's tree object"
@@ -273,5 +288,8 @@ sha1(
 
 > To be continued
 
-[three-little-trees]: https://speakerdeck.com/schacon/a-tale-of-three-trees
 [git-handbook]: https://medium.com/@reyhanhamidi/buku-saku-git-cheatsheet-git-bahasa-indonesia-3af42e42156e
+[jenkins-talk]: https://www.slideshare.net/DevOpsIndonesia/advanced-jenkins-create-plugin-to-auto-scale-worker-agent/9
+[sha1-pseudocode]: https://somelinks
+[three-little-trees]: https://speakerdeck.com/schacon/a-tale-of-three-trees
+[win-t]: https://github.com/win-t
