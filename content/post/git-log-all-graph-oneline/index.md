@@ -274,9 +274,26 @@ sha1(
 
 This pseudocode is borrowed from [here][sha1-pseudocode]. As we can see, besides
 the project directory, represented by `tree`, git also record other metadata
-such as commit message to generate the commit hash. Are they all? Oh no, I dont
-think they are all. However, I also dont know the complete list. Remember the
-gpg signed commit I mentioned above.
+such as commit message to form the commit object, that generate the commit hash.
+
+Are they all? Oh no, I dont think they are all. Remember the gpg signed commit I
+mentioned above? That's another input for the sha1 hash. However, I dont know
+the complete list of input to the sha1 hash. Of course, you are free to browse
+the git [repository][git-git] to uncover the truth :)
+
+Next thing I want to highlight is the `parents` and `tree` fields. I'll tell you
+this so you give them some thoughts beforehand. `parents` field refers to the
+parrent commits. This field formed the parrent relationship that makes up git's
+tree of commits. I wont go into detail about this tree and branching topic,
+because what I want to focus on here is about the individual commit.
+
+This lead us to the next topic about the previously mentioned `tree` field. The
+project directory's tree object is represented similaryly to commit object, as
+SHA-1 hash. You can imagine the tree object as a list of child items identified
+using their sha-1 hash and name. The child items can be another tree object
+or a blob object. A blob object simply holds the content of a file tracked by
+git. The image below illustrates the relationships between commit, tree, and
+blob objects.
 
 {{<resfigure
   alt="git's tree object"
@@ -286,10 +303,44 @@ gpg signed commit I mentioned above.
   attrlink="https://speakerdeck.com/schacon/a-tale-of-three-trees?slide=13"
 >}}
 
-> To be continued
+The tree object's hash of hashes shows git's characteristic of storing each
+commit's state of directory instead of changes. This is done in fairly efficient
+manner by only storing the changed objects. However, we can also imagine that
+git will suffer from many small edits in one huge file because it stores a blob
+object content in its entirety. Thus, each small change demand git to store a
+new blob object with around the same length even if the change is very minor.
+Its actually a good practice to split your source code into sensible length so
+this doesn't happen. But, not everyone can do so for their use case. This
+problem may arise when people use git for other use case where git is poorly
+designed such as storing game development assets, or deployment pattern where
+build artifacts is stored in git repository.
 
+Another opinion of mine that I would like to explain here is the reason why I
+prefer rebase compared to merge commit. Its because of git's nature of storing
+project directory state in the merge commit. The merged result is often taken
+for granted and overlooked. This makes merge commit with conflict resolution
+also overlooked by the same people who overlooked automatic merge commit. Sure,
+the automatic merge algorithm doesn't try to be too smart and gives us back the
+responsibility as soon as conflict is detected. But, please be sure to pay
+the same amount of attention a normal commit get to a merge one. This can be
+done by simply rewording the commit message from the default "Merge branch
+'branch-name'" to give it more attention or by avoiding merge commit
+altogether. My final would be to use both sensibly, so your `git log --all
+--graph --oneline` output will look beautiful and readable.
+
+## Closing
+
+Congratulations, You reached the end! I have to summon a great deal of effort
+fighting my procrastination to finish this in a way that I like. I also want to 
+thank [Leonardo][leonardo-twitter] because this article (or random ramblings) is
+heavliy inspired from his _Git Fundamental and Trunk-based Development_ online
+class. If you want more thorough explanation about those topics, go check him
+out.
+
+[git-git]: https://github.com/git/git
 [git-handbook]: https://medium.com/@reyhanhamidi/buku-saku-git-cheatsheet-git-bahasa-indonesia-3af42e42156e
 [jenkins-talk]: https://www.slideshare.net/DevOpsIndonesia/advanced-jenkins-create-plugin-to-auto-scale-worker-agent/9
+[leonardo-twitter]: https://twitter.com/ldoreno
 [sha1-pseudocode]: https://somelinks
 [three-little-trees]: https://speakerdeck.com/schacon/a-tale-of-three-trees
 [win-t]: https://github.com/win-t
