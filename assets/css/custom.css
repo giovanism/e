@@ -56,6 +56,10 @@ a[itemprop="url"]:hover {
     font-style: normal;
       }
 
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Style override stuff */
+
 .hack, .hack blockquote, .hack em, .hack strong {
   font-family: Zilla Slab, Roboto Slab, Georgia, Times, serif;
 }
