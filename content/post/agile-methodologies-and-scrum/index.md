@@ -2,7 +2,7 @@
 title = "Agile Methodologies and Scrum"
 date = 2020-04-14T04:29:38+07:00
 description = ""
-draft = true
+draft = false
 toc = false
 categories = ["ppl"]
 tags = ["computer", "agile", "scrum"]
@@ -14,3 +14,9 @@ images = [
 Hi!
 
 <!--more-->
+
+## What is Agile?
+
+## Scrum
+
+## Scrum on Our Team
