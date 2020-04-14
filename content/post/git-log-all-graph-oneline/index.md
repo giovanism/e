@@ -203,7 +203,7 @@ Unfortunately, we dont implement Trunk Based Development in our software
 engineering course. In my software engineering course we try to implement SCRUM
 agile software development methodology. There are some requirements for the
 scoring system and the lecturer team mandates every group to implement a variant
-of Git Flow branching model. Our project are split into PBIs (Project Backlog
+of Git Flow branching model. Our project are split into PBIs (Product Backlog
 Item). PBI is a unit of tangible progress/product that can be used by the
 user/client. These PBIs are broken down even more into tasks that can tackled
 down by one person.
