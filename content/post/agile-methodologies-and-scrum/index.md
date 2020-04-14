@@ -12,7 +12,7 @@ images = [
 
 [[resources]]
   name = "koenigsegg-agera"
-  src = "images/2015_Koenigsegg_Agera_N_(19886243212).jpg"
+  src = "images/2015-Koenigsegg-Agera-N-(19886243212).jpg"
   title = "2015 Koenigsegg Agera N"
   [resources.params.meta]
     creator = "Edvvc | https://www.flickr.com/people/23739231@N00"
