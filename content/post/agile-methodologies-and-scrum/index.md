@@ -17,6 +17,13 @@ images = [
   [resources.params.meta]
     creator = "Edvvc | https://www.flickr.com/people/23739231@N00"
     sameAs = "https://commons.wikimedia.org/wiki/File:2015_Koenigsegg_Agera_N_(19886243212).jpg"
+
+[[resources]]
+  name = "wa-mantan-aab"
+  src = "images/wa-mantan-aab.png"
+  title = "WA Group Mantan Aab"
+  [resources.params.meta]
+    creator = "Giovan Isa Musthofa | https://giovanis.me/about"
 +++
 
 {{<resfigure
@@ -108,9 +115,36 @@ Yup, our staging environment is working.
 
 Ouch!
 
-### Responding to Change over following a plan 
+### Responding to Change over following a plan
 
 Can't change plan if you dont have any in the first place, lol.
+
+## Scrum on Our Team 28/04/2019
+
+### Individuals and Interactions over processes and tools
+
+{{<resfigure
+  alt="WA Group Mantan Aab"
+  src="wa-mantan-aab"
+  title="WA Group Mantan Aab"
+  attr="Giovan Isa Musthofa"
+  attrlink="https://giovansi.me/about"
+>}}
+
+Now this really looks like we are actually throwing out our tools (GitLab Issue
+and Boards) in exchange for tighter collaboration.
+
+### Working Software over comprehensive documentation
+
+Yup, our staging environment is working.
+
+### Customer Collaboration over contract negotiation
+
+Final UAT with Product owner before Sprint Review.
+
+### Responding to Change over following a plan
+
+Client complaints are addresses soon after "warmfix".
 
 
 [agile-manifesto]: https://agilemanifesto.org/
