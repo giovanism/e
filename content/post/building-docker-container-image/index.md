@@ -125,5 +125,34 @@ changes in your source files.
 Okay, this is about what I can explain here with my already short time.
 Thank you and see you again in another posts.
 
+## P.S.
+
+Okay here is some additional content about our container orchestration.
+Currently, we run and serve our applications inside containers, except for some
+proxy logics which is run by normal Nginx daemon. This is configured using plain
+old docker-compose.yml file. `api` container is the one I explained on how to
+build the docker container image previously.
+
+```
+
+                    +-----------------------------------+
+ +------------------+               NGINX               +-----------------+
+ |                  +-----------------------------------+                 |
+ |          +--------^     +--^                                           |
+ | 8000:8000|              |8080:8000                                     |
+ | +---------------------------+  +-------------------------------------+ |
+ | |        default net        |  |            internal net             | |  <--+  container network
+ | +---------------------------+  +-------------------------------------+ |
+ |         ^              ^           ^            ^               ^      |
+ | +----------------+ +--------------------+ +------------+ +-----------+ |
+ | |      web       | |         api        | |     db     | |  memcache | |  <--+  containers
+ | +----------------+ +--------------------+ +------------+ +-----------+ |
+ |      ^ /media_path       ^ /media_path      ^ /data/postgresql         |
+ |    +------------------------------------------------------------+      |
+ +----+                                                            +------+
+      |                        HOST VOLUMES                        |
+      +------------------------------------------------------------+
+```
+
 [alpine]: https://www.alpinelinux.org/
 [pypi]: https://pypi.org/
