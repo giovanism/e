@@ -28,4 +28,4 @@ This is something that I write in my github bio.
 
 In turn, this is what I write in my formal CV, you can find it [here][CV]
 
-[CV]: https://docs.google.com/document/d/1_XoO1oHQutrdLp6fMCQuHkBk-ubPw0NlmbQtMnxN7Wo/edit?usp=sharing
+[CV]: https://docs.google.com/document/d/1ITOVfHw7T2V2I5sHXM8R0xNnbLPRTq3n9RO8Kvg0aWE/edit?usp=sharing
