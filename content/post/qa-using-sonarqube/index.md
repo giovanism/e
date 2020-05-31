@@ -34,7 +34,7 @@ implemented it. So, don't put so much expectation, mkay?
 
 ## Testing
 
-Testing has always been an important part of software engineering disciples.
+Testing has always been an important part of software engineering discipline.
 Through executing the system under test in specific ways, it tries to uncover
 bugs lurking in the corner and verify that the system is running correctly. I've
 put a nice image of Software Testing Life Cycle at the top of the post, but it
