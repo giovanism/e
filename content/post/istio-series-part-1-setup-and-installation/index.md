@@ -1,7 +1,23 @@
 ---
 title: "Istio Series Part 1: Setup and Installation"
 date: 2021-09-21T07:13:28+07:00
-draft: true
+draft: false
+
+categories:
+- technology
+
+tags:
+- computer
+- kubernetes
+- istio
+
+resources:
+- name: bookinfo
+  src: bookinfo.png
+  title: Bookinfo Web Application
+- name: kiali
+  src: kiali.png
+  title: Kiali Dashboard
 ---
 
 Hi, long time no see! I just started learning Istio seriously so I would like a
@@ -99,7 +115,7 @@ reviews-v3-84779c7bbc-zh45t       2/2     Running   0          42m
 Next, to expose our application to outside traffic we need to create an Istio Ingress Gateway along
 with the Virtual Service that will route the traffic from your gateway to the actual service.
 
-```
+```sh
 istio> kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 gateway.networking.istio.io/bookinfo-gateway created
 virtualservice.networking.istio.io/bookinfo created
@@ -110,7 +126,7 @@ port number. The methods variest between each platforms as documented
 [here](https://istio.io/latest/docs/setup/getting-started/#determining-the-ingress-ip-and-ports).
 Since I used minikube I can run these commands. 
 
-```
+```sh
 export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
 export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')
 export INGRESS_HOST=$(minikube ip)
@@ -118,4 +134,32 @@ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo "http://$GATEWAY_URL/productpage"
 ```
 
-Congrats! Now we are finally able to access our service.
+Click on the printed url! Congrats! Now we are finally able to access our service.
+
+{{<resfigure
+  alt="Bookinfo Web Application"
+  src="bookinfo"
+  title="Bookinfo Web Application"
+>}}
+
+While we are at it, we can also install istio addons that will help us to
+observe the telemetry exposed by default from istio.
+
+```sh
+kubectl apply -f samples/addons
+kubectl rollout status deployment/kiali -n istio-system
+```
+
+Then open the kiali dashboard by running this command.
+
+```
+istioctl dashboard kiali
+```
+
+{{<resfigure
+  alt="Kiali Dashboard"
+  src="kiali"
+  title="Kiali Dashboard"
+>}}
+
+With this setup, we're able to have our toy service running and also gain understanding of its structure, topology.
