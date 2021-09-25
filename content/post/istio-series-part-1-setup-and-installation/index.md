@@ -53,7 +53,7 @@ when pulling the images.
 Next step is to actually install the Istio Operator. There are many methods to
 install it as documented
 [here](https://istio.io/latest/docs/setup/platform-setup/). I used the
-`istioctl` method because I dont need any configuration yet and I need the
+`istioctl` method because I don't need any configuration yet and I need the
 `istioctl` client anyway at later steps to inspect the Istio and Envoy configs.
 My tips is to install `istioctl` via the [asdf
 plugin](https://github.com/kameshsampath/asdf-istio) if you need multiple
@@ -122,7 +122,7 @@ virtualservice.networking.istio.io/bookinfo created
 ```
 
 To open our application from browser, we need to determine the ingress host and
-port number. The methods variest between each platforms as documented
+port number. The method varies between each platforms as documented
 [here](https://istio.io/latest/docs/setup/getting-started/#determining-the-ingress-ip-and-ports).
 Since I used minikube I can run these commands. 
 
@@ -134,7 +134,7 @@ export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
 echo "http://$GATEWAY_URL/productpage"
 ```
 
-Click on the printed url! Congrats! Now we are finally able to access our service.
+Click on the printed URL! Congrats! Now we are finally able to access our service.
 
 {{<resfigure
   alt="Bookinfo Web Application"
@@ -142,15 +142,15 @@ Click on the printed url! Congrats! Now we are finally able to access our servic
   title="Bookinfo Web Application"
 >}}
 
-While we are at it, we can also install istio addons that will help us to
-observe the telemetry exposed by default from istio.
+While we are at it, we can also install Istio add-ons that will help us to
+observe the telemetry exposed by default from Istio.
 
 ```sh
 kubectl apply -f samples/addons
 kubectl rollout status deployment/kiali -n istio-system
 ```
 
-Then open the kiali dashboard by running this command.
+Then open the Kiali dashboard by running this command.
 
 ```
 istioctl dashboard kiali
