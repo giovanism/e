@@ -1,0 +1,7 @@
+asdf
+Bookinfo
+config
+Istio
+Kiali
+minikube
+Netlify
