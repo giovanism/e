@@ -142,8 +142,16 @@ Click on the printed URL! Congrats! Now we are finally able to access our servic
   title="Bookinfo Web Application"
 >}}
 
-While we are at it, we can also install Istio add-ons that will help us to
-observe the telemetry exposed by default from Istio.
+While we are at it, we should apply the destination rules so that we can
+control the service versions routing later when we want to play around with
+Istio traffic management.
+
+```sh
+kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+```
+
+We should also install Istio add-ons that will help us to observe the telemetry
+exposed by default from Istio.
 
 ```sh
 kubectl apply -f samples/addons
