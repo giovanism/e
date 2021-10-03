@@ -23,6 +23,8 @@ resources:
 Hi, long time no see! I just started learning Istio seriously so I would like a
 place to write down my understanding and additional thoughts I have.
 
+<!--more-->
+
 ## Setup
 
 You can find how to setup the platform
@@ -119,6 +121,17 @@ with the Virtual Service that will route the traffic from your gateway to the ac
 istio> kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
 gateway.networking.istio.io/bookinfo-gateway created
 virtualservice.networking.istio.io/bookinfo created
+```
+
+Then we also need to apply the destination rules so Istio can manage the load
+balancing later.
+
+```
+istio> kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+destinationrule.networking.istio.io/productpage created
+destinationrule.networking.istio.io/reviews created
+destinationrule.networking.istio.io/ratings created
+destinationrule.networking.istio.io/details created
 ```
 
 To open our application from browser, we need to determine the ingress host and
