@@ -2,10 +2,10 @@
 title = "Istio Series Part 2: Traffic Management"
 date = 2021-09-27T06:22:02+07:00
 description = ""
-draft = true
+draft = false
 toc = false
 categories = ["technology"]
-tags = [""]
+tags = ["computer", "kubernetes", "istio"]
 images = [
   "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
 ] # overrides the site-wide open graph image
