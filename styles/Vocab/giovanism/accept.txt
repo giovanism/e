@@ -1,9 +1,11 @@
 Bookinfo
+Fortio
 Istio
 Kiali
 Netlify
 asdf
 config
+httpbin
 jason
 minikube
 unmanaged

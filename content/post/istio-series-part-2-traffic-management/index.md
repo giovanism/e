@@ -3,7 +3,7 @@ title = "Istio Series Part 2: Traffic Management"
 date = 2021-09-27T06:22:02+07:00
 description = ""
 draft = false
-toc = false
+toc = true
 categories = ["technology"]
 tags = ["computer", "kubernetes", "istio"]
 images = [
@@ -30,8 +30,8 @@ also load balance service that have multiple instances, or direct a percentage
 of traffic to different versions running at the same time as part of A/B
 testing or canary deployment.
 
-> Can we just achieve the same traffic shifting/splitting by scaling the Kubernetes 
-> replica?
+> Can we just achieve the same traffic shifting/splitting by scaling there
+> Kubernetes replica?
 
 Yes, but there are a few disadvantages to that approach. By using Istio or
 other load balancer the traffic management will be independent of the compute
@@ -448,4 +448,241 @@ virtualservice.networking.istio.io/reviews configured
 
 Now we'll just see colored ratings.
 
-I only add these tasks for now. I'll add more task later `:fingers_crossed:`
+
+### Request timeouts
+
+Next we'll try to configure request timeout from Istio, instead of using
+hard-coded timeout from the application like when we tried fault injection.
+
+For this task, start by resetting all virtual services back to `v1` first.
+
+```
+istio> kubectl apply -f samples/bookinfo/networking/virtual-service-all-v1.yaml
+```
+
+Then route the traffic of reviews service to v2 so it calls the ratings
+service.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v2
+EOF
+```
+
+Inject 2s delay to ratings service that we'll try to timeout later.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ratings
+spec:
+  hosts:
+  - ratings
+  http:
+  - fault:
+      delay:
+        percent: 100
+        fixedDelay: 2s
+    route:
+    - destination:
+        host: ratings
+        subset: v1
+EOF
+```
+
+At this point, we should see 2 seconds delay when loading the product page.
+
+To make sure that the reviews service return results within half a second, web
+just need to configure the timeout like this.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+  - reviews
+  http:
+  - route:
+    - destination:
+        host: reviews
+        subset: v2
+    timeout: 0.5s
+EOF
+```
+
+Now we should expect that the page loads immediately, albeit now the reviews
+section is marked as unavailable.
+
+Besides timeout per route, timeout per request can also be configured using
+`x-envoy-upstream-rq-timeout-ms` header.
+
+For now we are done with Bookinfo application. To remove the whole Bookinfo
+application we can just run the clean up script.
+
+```
+samples/bookinfo/platform/kube/cleanup.sh
+```
+
+### Circuit Breaking
+
+One last task I want to show is circuit breaking. Circuit breaking
+pattern is important for microservices application to limit the impact
+of failures, latency spikes, and other undesirable effects of network
+peculiarities.
+
+For this task we'll deploy the httpbin sample application.
+
+```
+istio> kubectl apply -f samples/httpbin/httpbin.yaml
+serviceaccount/httpbin created
+service/httpbin created
+deployment.apps/httpbin created
+```
+
+Then configure the circuit breaking settings when calling httpbin service by
+creating httpbin destination rule.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: httpbin
+spec:
+  host: httpbin
+  trafficPolicy:
+    connectionPool:
+      tcp:
+        maxConnections: 1
+      http:
+        http1MaxPendingRequests: 1
+        maxRequestsPerConnection: 1
+    outlierDetection:
+      consecutive5xxErrors: 1
+      interval: 1s
+      baseEjectionTime: 3m
+      maxEjectionPercent: 100
+EOF
+```
+
+Next we'll need a client that make request to our httpbin service. We'll use
+`fortio` load testing client to do this.
+
+```
+istio> kubectl apply -f samples/httpbin/sample-client/fortio-deploy.yaml
+service/fortio created
+deployment.apps/fortio-deploy created
+```
+
+Now we'll test the connection by making a request using curl from the Fortio
+pod.
+
+```
+istio> export FORTIO_POD=$(kubectl get pods -l app=fortio -o 'jsonpath={.items[0].metadata.name}')
+istio> kubectl exec "$FORTIO_POD" -c fortio -- /usr/bin/fortio curl -quiet http://httpbin:8000/get
+HTTP/1.1 200 OK
+server: envoy
+date: Tue, 19 Oct 2021 00:39:32 GMT
+content-type: application/json
+content-length: 594
+access-control-allow-origin: *
+access-control-allow-credentials: true
+x-envoy-upstream-service-time: 23
+
+{
+  "args": {},
+  "headers": {
+    "Host": "httpbin:8000",
+    "User-Agent": "fortio.org/fortio-1.11.3",
+    "X-B3-Parentspanid": "50b3ce54612f5a88",
+    "X-B3-Sampled": "1",
+    "X-B3-Spanid": "f899c0ffcd0ff8e4",
+    "X-B3-Traceid": "dba51ab86f27f24a50b3ce54612f5a88",
+    "X-Envoy-Attempt-Count": "1",
+    "X-Forwarded-Client-Cert": "By=spiffe://cluster.local/ns/default/sa/httpbin;Hash=090c8aeecf9e8c3efa1c1e0d4c7cbb574549c29948552396959632f3bfda4daa;Subject=\"\";URI=spiffe://cluster.local/ns/default/sa/default"
+  },
+  "origin": "127.0.0.6",
+  "url": "http://httpbin:8000/get"
+}
+```
+
+After verifying that the request succeeded, we can move on to load test our
+application.
+
+We'll call the application with two concurrent connections (-c 2) and send 200
+requests (-n 20).
+
+```
+istio> kubectl exec "$FORTIO_POD" -c fortio -- /usr/bin/fortio load -c 2 -qps 0 -n 20 -loglevel Warning http://httpbin:8000/get
+00:53:55 I logger.go:127> Log level is now 3 Warning (was 2 Info)
+Fortio 1.11.3 running at 0 queries per second, 2->2 procs, for 20 calls: http://httpbin:8000/get
+Starting at max qps with 2 thread(s) [gomax 2] for exactly 20 calls (10 per thread + 0)
+00:53:55 W http_client.go:693> Parsed non ok code 503 (HTTP/1.1 503)
+00:53:55 W http_client.go:693> Parsed non ok code 503 (HTTP/1.1 503)
+00:53:55 W http_client.go:693> Parsed non ok code 503 (HTTP/1.1 503)
+00:53:55 W http_client.go:693> Parsed non ok code 503 (HTTP/1.1 503)
+00:53:55 W http_client.go:693> Parsed non ok code 503 (HTTP/1.1 503)
+Ended after 95.661243ms : 20 calls. qps=209.07
+Aggregated Function Time : count 20 avg 0.0093273393 +/- 0.008145 min 0.001500939 max 0.032632193 sum 0.186546786
+# range, mid point, percentile, count
+>= 0.00150094 <= 0.002 , 0.00175047 , 10.00, 2
+> 0.002 <= 0.003 , 0.0025 , 15.00, 1
+> 0.004 <= 0.005 , 0.0045 , 25.00, 2
+> 0.005 <= 0.006 , 0.0055 , 30.00, 1
+> 0.006 <= 0.007 , 0.0065 , 55.00, 5
+> 0.007 <= 0.008 , 0.0075 , 65.00, 2
+> 0.008 <= 0.009 , 0.0085 , 75.00, 2
+> 0.011 <= 0.012 , 0.0115 , 80.00, 1
+> 0.012 <= 0.014 , 0.013 , 85.00, 1
+> 0.016 <= 0.018 , 0.017 , 90.00, 1
+> 0.025 <= 0.03 , 0.0275 , 95.00, 1
+> 0.03 <= 0.0326322 , 0.0313161 , 100.00, 1
+# target 50% 0.0068
+# target 75% 0.009
+# target 90% 0.018
+# target 99% 0.0321058
+# target 99.9% 0.0325795
+Sockets used: 7 (for perfect keepalive, would be 2)
+Jitter: false
+Code 200 : 15 (75.0 %)
+Code 503 : 5 (25.0 %)
+Response Header Sizes : count 20 avg 172.55 +/- 99.62 min 0 max 231 sum 3451
+Response Body/Total Sizes : count 20 avg 678.3 +/- 252.5 min 241 max 825 sum 13566
+All done 20 calls (plus 0 warmup) 9.327 ms avg, 209.1 qps
+```
+
+We can see the total of requests that made through and didn't here.
+
+> Code 200 : 15 (75.0 %)
+> Code 503 : 5 (25.0 %)
+
+To clean up the httpbin service and client, run the commands below.
+
+```sh
+kubectl delete destinationrule httpbin
+kubectl delete deploy httpbin fortio-deploy
+kubectl delete svc httpbin fortio
+```
+
+## End notes
+
+Wow finally made it to the end. This post is taking forever to finish and I had
+to split up the work. To be honest there isn't much difference between this
+semi tutorial and Istio's docs, but this is still a learning opportunity for
+me. Please react or make comments below if you have any feedback.
