@@ -8,4 +8,6 @@ config
 httpbin
 jason
 minikube
+repo
 unmanaged
+subchart
