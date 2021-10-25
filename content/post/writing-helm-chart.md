@@ -174,3 +174,7 @@ NAME    NAMESPACE       REVISION        UPDATED                                 
 bar     default         1               2021-10-26 03:02:16.77455 +0700 WIB     deployed        giovanism-chart-0.1.0   1.16.0
 foo     default         1               2021-10-25 10:14:02.184255 +0700 WIB    deployed        giovanism-chart-0.1.0   1.16.0
 ```
+
+I think that's all. For now I just want to keep up writing regularly rather than
+focusing too much on the content. I do hope that in the future I can more
+exciting and sophisticated contents.
