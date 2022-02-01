@@ -4,6 +4,7 @@ Hightower
 Istio
 Kiali
 Netlify
+Nginx
 asdf
 config
 dev
@@ -13,3 +14,4 @@ minikube
 repo
 subchart
 unmanaged
+yoink
