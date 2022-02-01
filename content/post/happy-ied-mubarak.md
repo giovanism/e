@@ -1,15 +1,17 @@
-+++
-title = "Happy Ied Mubarak"
-date = 2018-06-20T16:06:59+07:00
-description = "An apology of another apology"
-draft = false
-toc = false
-categories = ["update"]
-tags = ["holiday", "apology"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- update
+date: "2018-06-20T16:06:59+07:00"
+description: An apology of another apology
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+tags:
+- holiday
+- apology
+title: Happy Ied Mubarak
+toc: false
+---
 
 Assalamu'alaikum warahmatullahi wabarakatuh
 

@@ -1,21 +1,23 @@
-+++
-title = "Testing and Test Driven Development"
-date = 2020-04-14T04:29:39+07:00
-description = ""
-draft = false
-toc = false
-categories = ["ppl"]
-tags = ["computer", "qa", "testing", "sonarqube"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-
-[[resources]]
-  name = "testing-lifecycle"
-  src = "Software_Testing_Life_Cycle.jpg"
-  title = "Software Testing Life Cycle"
-
-+++
+---
+categories:
+- ppl
+date: "2020-04-14T04:29:39+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+resources:
+- name: testing-lifecycle
+  src: Software_Testing_Life_Cycle.jpg
+  title: Software Testing Life Cycle
+tags:
+- computer
+- qa
+- testing
+- sonarqube
+title: Testing and Test Driven Development
+toc: false
+---
 
 {{<resfigure
   alt="Sequential Software Testing Life Cycle Created by Software Testing Engineer "

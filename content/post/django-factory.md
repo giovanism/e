@@ -1,19 +1,16 @@
-+++
-title = "Factory Boy"
-date = 2020-05-12T07:36:35+07:00
-description = ""
-draft = false
-toc = false
-categories = ["ppl"]
-tags = [""]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-
-# external resources
-# 1. https://commons.wikimedia.org/wiki/File:The_Story_of_Mankind_-_The_Factory.png
-
-+++
+---
+categories:
+- ppl
+date: "2020-05-12T07:36:35+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+tags:
+- ""
+title: Factory Boy
+toc: false
+---
 
 {{<figure
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/The_Story_of_Mankind_-_The_Factory.png/800px-The_Story_of_Mankind_-_The_Factory.png"

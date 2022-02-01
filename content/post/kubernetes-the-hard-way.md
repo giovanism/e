@@ -1,15 +1,18 @@
-+++
-title = "Kubernetes the Hard Way"
-date = 2021-11-15T06:53:05+07:00
-description = ""
-draft = false
-toc = false
-categories = ["technology"]
-tags = ["computer", "kubernetes", "gcp"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- technology
+date: "2021-11-15T06:53:05+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+tags:
+- computer
+- kubernetes
+- gcp
+title: Kubernetes the Hard Way
+toc: false
+---
 
 Hi! Last weekend I finally tried out the famous [Kubernetes The Hard
 Way](https://github.com/kelseyhightower/kubernetes-the-hard-way) by [Kelsey

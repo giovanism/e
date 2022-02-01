@@ -1,15 +1,17 @@
-+++
-title = "Starry Night"
-date = 2018-06-14T17:01:24+07:00
-description = "Thank you for choosing After Dark."
-draft = true
-toc = false
-categories = ["technology"]
-tags = ["hello", "world"]
-images = [
-  "https://source.unsplash.com/category/technology/1600x900"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- technology
+date: "2018-06-14T17:01:24+07:00"
+description: Thank you for choosing After Dark.
+draft: true
+images:
+- https://source.unsplash.com/category/technology/1600x900
+tags:
+- hello
+- world
+title: Starry Night
+toc: false
+---
 
 Before you continue, please take a moment to configure your archetypes.
 

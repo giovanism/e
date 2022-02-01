@@ -1,26 +1,25 @@
-+++
-title = "Istio Series Part 1: Setup and Installation"
-date = 2021-09-21T07:13:28+07:00
-description = ""
-draft = false
-toc = false
-categories = ["technology"]
-tags = ["computer", "kubernetes", "istio"]
-
-[[resources]]
-  name = "bookinfo"
-  src = "bookinfo.png"
-  title = "Bookinfo Web Application"
-
-[[resources]]
-  name = "kiali"
-  src = "kiali.png"
-  title = "Kiali Dashboard"
-
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- technology
+date: "2021-09-21T07:13:28+07:00"
+description: ""
+draft: false
+resources:
+- name: bookinfo
+  src: bookinfo.png
+  title: Bookinfo Web Application
+- images:
+  - https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+  name: kiali
+  src: kiali.png
+  title: Kiali Dashboard
+tags:
+- computer
+- kubernetes
+- istio
+title: 'Istio Series Part 1: Setup and Installation'
+toc: false
+---
 
 Hi, long time no see! I just started learning Istio seriously so I would like a
 place to write down my understanding and additional thoughts I have.

@@ -1,20 +1,16 @@
-+++
-title = "Clean Code 101"
-date = 2020-05-12T07:23:21+07:00
-description = ""
-draft = false
-toc = false
-categories = ["ppl"]
-tags = [""]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-
-# external resource
-# 1. https://commons.wikimedia.org/wiki/File:Veil_Nebula_-_NGC6960.jpg
-# 2. https://miro.medium.com/max/1400/1*NT1um6PYhJU4q9E26cQUew.png
-# taken using url before using page bundle.
-+++
+---
+categories:
+- ppl
+date: "2020-05-12T07:23:21+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+tags:
+- ""
+title: Clean Code 101
+toc: false
+---
 
 {{<figure
   alt="Photograph of Veil Nebula"

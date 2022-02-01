@@ -1,20 +1,22 @@
-+++
-title = "Arkavidia 5 CTF"
-date = 2019-01-12T21:45:12+07:00
-description = ""
-draft = false
-toc = false
-categories = ["write up"]
-tags = ["ctf", "computer", "security", "competition"]
-images = [
-  "images/arkavidia5ctf.svg"
-] # overrides the site-wide open graph image
-
-[[resources]]
-  name = "arkavidia5ctf"
-  src = "images/arkavidia5ctf.svg"
-
-+++
+---
+categories:
+- write up
+date: "2019-01-12T21:45:12+07:00"
+description: ""
+draft: false
+images:
+- images/arkavidia5ctf.svg
+resources:
+- name: arkavidia5ctf
+  src: images/arkavidia5ctf.svg
+tags:
+- ctf
+- computer
+- security
+- competition
+title: Arkavidia 5 CTF
+toc: false
+---
 
 {{<resfigure 
     src="arkavidia5ctf"

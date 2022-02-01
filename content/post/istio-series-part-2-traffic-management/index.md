@@ -1,15 +1,18 @@
-+++
-title = "Istio Series Part 2: Traffic Management"
-date = 2021-09-27T06:22:02+07:00
-description = ""
-draft = false
-toc = true
-categories = ["technology"]
-tags = ["computer", "kubernetes", "istio"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- technology
+date: "2021-09-27T06:22:02+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+tags:
+- computer
+- kubernetes
+- istio
+title: 'Istio Series Part 2: Traffic Management'
+toc: true
+---
 
 Back to another Istio post. Previously, we've set up our own Kubernetes
 cluster, Istio mesh, toy service and also Kiali dashboard to observe our mesh.

@@ -1,13 +1,12 @@
-+++
-title = "About me"
-date = 2019-01-30T08:44:01+07:00
-description = ""
-draft = false
-
-[[resources]]
-  name = "avatar"
-  src = "lucifer.jpg"
-+++
+---
+date: "2019-01-30T08:44:01+07:00"
+description: ""
+draft: false
+resources:
+- name: avatar
+  src: lucifer.jpg
+title: About me
+---
 
 {{<resfigure 
     src="avatar"

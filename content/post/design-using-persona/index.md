@@ -1,28 +1,27 @@
-+++
-title = "Persona for Application Design"
-date = 2020-05-12T07:25:52+07:00
-description = ""
-draft = false
-toc = false
-categories = ["ppl"]
-tags = [""]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-
-[[resources]]
-  name = "persona-pendonor"
-  src = "persona_pendonor.png"
-  title = "Persona Pendonor"
-
-[[resources]]
-  name = "persona-5-logo"
-  src = "Persona_5_logo.svg"
-  title = "Persona 5 logo"
-  [resources.params.meta]
-    creator = "™ Atlus · SEGA | https://atlus.com/"
-    sameAs = "https://commons.wikimedia.org/wiki/File:Persona_5_logo.svg"
-+++
+---
+categories:
+- ppl
+date: "2020-05-12T07:25:52+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+resources:
+- name: persona-pendonor
+  src: persona_pendonor.png
+  title: Persona Pendonor
+- name: persona-5-logo
+  params:
+    meta:
+      creator: ™ Atlus · SEGA | https://atlus.com/
+      sameAs: https://commons.wikimedia.org/wiki/File:Persona_5_logo.svg
+  src: Persona_5_logo.svg
+  title: Persona 5 logo
+tags:
+- ""
+title: Persona for Application Design
+toc: false
+---
 
 {{<resfigure
   alt="Persona 5 game logo"

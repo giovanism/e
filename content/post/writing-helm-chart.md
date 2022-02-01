@@ -1,15 +1,18 @@
-+++
-title = "Writing Helm Chart"
-date = 2021-10-25T06:58:59+07:00
-description = ""
-draft = false
-toc = false
-categories = ["technology"]
-tags = ["computer", "kubernetes", "helm"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- technology
+date: "2021-10-25T06:58:59+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+tags:
+- computer
+- kubernetes
+- helm
+title: Writing Helm Chart
+toc: false
+---
 
 Recently I wrote my first Helm chart, well technically copy pasted someone's 
 else and make my modifications from there, but hey finally a good time to write

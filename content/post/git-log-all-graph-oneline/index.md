@@ -1,49 +1,41 @@
-+++
-title = "git log --all --graph --oneline"
-date = 2020-03-09T18:01:17+07:00
-description = "Giovan growing his little trees"
-draft = false
-toc = false
-categories = ["ppl"]
-tags = ["computer", "git"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-
-[[resources]]
-  name = "little-wire-tree"
-  src = "images/Wire-Tree-Sculpture-Metal-Bonsai-8.jpg"
-  title = "Metal Wire Bonsai"
-  [resources.params.meta]
-    creator = "Metal Bonsai | https://metalbonsai.com/"
-    sameAs = "https://mymodernmet.com/wp/wp-content/uploads/2017/03/Wire-Tree-Sculpture-Metal-Bonsai-8.jpg"
-
-[[resources]]
-  name = "git-log-output"
-  src = "images/git-log-output.png"
-  title = "git --log --graph --oneline"
-
-[[resources]]
-  name = "winnie-the-pooh"
-  src = "images/winnie-the-pooh.jpg"
-  title = "Winnie The Pooh Approve's `git switch`"
-
-[[resources]]
-  name = "gigas-chedar"
-  src = "images/gigas-chedar.webp"
-  title = "[REVIEW] Pembahasan Sword Art Online Alicization Episode 4: Tumbangnya Pohon Gigas Cedar"
-
-[[resources]]
-  name = "trunk1b"
-  src = "images/trunk1b.png"
-  title = "Scaled Trunk-Based Development"
-
-[[resources]]
-  name = "tree-object"
-  src = "images/tree-object.png"
-  title = "Git Tree Object Structure"
-
-+++
+---
+categories:
+- ppl
+date: "2020-03-09T18:01:17+07:00"
+description: Giovan growing his little trees
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+resources:
+- name: little-wire-tree
+  params:
+    meta:
+      creator: Metal Bonsai | https://metalbonsai.com/
+      sameAs: https://mymodernmet.com/wp/wp-content/uploads/2017/03/Wire-Tree-Sculpture-Metal-Bonsai-8.jpg
+  src: images/Wire-Tree-Sculpture-Metal-Bonsai-8.jpg
+  title: Metal Wire Bonsai
+- name: git-log-output
+  src: images/git-log-output.png
+  title: git --log --graph --oneline
+- name: winnie-the-pooh
+  src: images/winnie-the-pooh.jpg
+  title: Winnie The Pooh Approve's `git switch`
+- name: gigas-chedar
+  src: images/gigas-chedar.webp
+  title: '[REVIEW] Pembahasan Sword Art Online Alicization Episode 4: Tumbangnya Pohon
+    Gigas Cedar'
+- name: trunk1b
+  src: images/trunk1b.png
+  title: Scaled Trunk-Based Development
+- name: tree-object
+  src: images/tree-object.png
+  title: Git Tree Object Structure
+tags:
+- computer
+- git
+title: git log --all --graph --oneline
+toc: false
+---
 
 {{<resfigure
   alt="Little Tree"

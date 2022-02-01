@@ -1,31 +1,28 @@
-+++
-title = "Istio Series Part 3: Ingress Gateway"
-date = 2021-12-12T15:09:34+07:00
-description = ""
-draft = false
-toc = false
-categories = ["technology"]
-tags = ["computer", "kubernetes", "istio"]
-
-[[resources]]
-  name = "ingress-gw"
-  src = "ingress.png"
-  title = "Ingress Gateway"
-
-[[resources]]
-  name = "ingress2"
-  src = "ingress2.png"
-  title = "Ingress 2"
-
-[[resources]]
-  name = "reverse-proxy"
-  src = "reverse-proxy.png"
-  title = "Reverse Proxy"
-
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- technology
+date: "2021-12-12T15:09:34+07:00"
+description: ""
+draft: false
+resources:
+- name: ingress-gw
+  src: ingress.png
+  title: Ingress Gateway
+- name: ingress2
+  src: ingress2.png
+  title: Ingress 2
+- images:
+  - https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+  name: reverse-proxy
+  src: reverse-proxy.png
+  title: Reverse Proxy
+tags:
+- computer
+- kubernetes
+- istio
+title: 'Istio Series Part 3: Ingress Gateway'
+toc: false
+---
 
 Hi, it's been a while since I have time to write something for this blog. Last
 post about traffic management in Istio covers a lot of topics, a tad too much

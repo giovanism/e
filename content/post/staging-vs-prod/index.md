@@ -1,23 +1,20 @@
-+++
-title = "Staging vs Prod and More..."
-date = 2020-05-12T07:34:07+07:00
-description = ""
-draft = false
-toc = false
-categories = ["ppl"]
-tags = [""]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-
-[[resources]]
-  name = "requirements"
-  src = "requirements.png"
-  title = "Multiple requirements.txt Files"
-
-# external resources
-# 1. https://upload.wikimedia.org/wikipedia/commons/4/41/Space_Shuttle_Columbia_launching.jpg
-+++
+---
+categories:
+- ppl
+date: "2020-05-12T07:34:07+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+resources:
+- name: requirements
+  src: requirements.png
+  title: Multiple requirements.txt Files
+tags:
+- ""
+title: Staging vs Prod and More...
+toc: false
+---
 
 {{<figure
   alt="First launch of Space Shuttle Columbia "

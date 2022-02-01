@@ -1,21 +1,22 @@
-+++
-title = "Trying Out eBPF"
-date = 2021-11-05T19:51:07+07:00
-description = ""
-draft = false
-toc = false
-categories = ["technology"]
-tags = ["computer", "kubernetes", "ebpf"]
-
-[[resources]]
-  name = "mindmap"
-  src = "mindmap.png"
-  title = "eBPF Mindmap"
-
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- technology
+date: "2021-11-05T19:51:07+07:00"
+description: ""
+draft: false
+resources:
+- images:
+  - https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+  name: mindmap
+  src: mindmap.png
+  title: eBPF Mindmap
+tags:
+- computer
+- kubernetes
+- ebpf
+title: Trying Out eBPF
+toc: false
+---
 
 Hi folks! Today I want to share about eBPF since I tried it out a bit last week.
 My friend convinced me to learn it so we can discuss it together. Many people

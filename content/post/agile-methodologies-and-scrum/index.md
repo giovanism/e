@@ -1,30 +1,32 @@
-+++
-title = "Agile Software Development and Scrum"
-date = 2020-04-14T04:29:38+07:00
-description = ""
-draft = false
-toc = false
-categories = ["ppl"]
-tags = ["computer", "agile", "scrum"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-
-[[resources]]
-  name = "koenigsegg-agera"
-  src = "images/2015-Koenigsegg-Agera-N-(19886243212).jpg"
-  title = "2015 Koenigsegg Agera N"
-  [resources.params.meta]
-    creator = "Edvvc | https://www.flickr.com/people/23739231@N00"
-    sameAs = "https://commons.wikimedia.org/wiki/File:2015_Koenigsegg_Agera_N_(19886243212).jpg"
-
-[[resources]]
-  name = "wa-mantan-aab"
-  src = "images/wa-mantan-aab.png"
-  title = "WA Group Mantan Aab"
-  [resources.params.meta]
-    creator = "Giovan Isa Musthofa | https://giovanis.me/about"
-+++
+---
+categories:
+- ppl
+date: "2020-04-14T04:29:38+07:00"
+description: ""
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+resources:
+- name: koenigsegg-agera
+  params:
+    meta:
+      creator: Edvvc | https://www.flickr.com/people/23739231@N00
+      sameAs: https://commons.wikimedia.org/wiki/File:2015_Koenigsegg_Agera_N_(19886243212).jpg
+  src: images/2015-Koenigsegg-Agera-N-(19886243212).jpg
+  title: 2015 Koenigsegg Agera N
+- name: wa-mantan-aab
+  params:
+    meta:
+      creator: Giovan Isa Musthofa | https://giovanis.me/about
+  src: images/wa-mantan-aab.png
+  title: WA Group Mantan Aab
+tags:
+- computer
+- agile
+- scrum
+title: Agile Software Development and Scrum
+toc: false
+---
 
 {{<resfigure
   alt="2015 Koenigsegg Agera N"

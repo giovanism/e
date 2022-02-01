@@ -1,15 +1,19 @@
-+++
-title = "Lil Story"
-date = 2018-06-16T13:40:37+07:00
-description = "How I finally decided to write something"
-draft = false
-toc = false
-categories = ["update"]
-tags = ["hello", "blog", "static site", "hugo"]
-images = [
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg"
-] # overrides the site-wide open graph image
-+++
+---
+categories:
+- update
+date: "2018-06-16T13:40:37+07:00"
+description: How I finally decided to write something
+draft: false
+images:
+- https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
+tags:
+- hello
+- blog
+- static site
+- hugo
+title: Lil Story
+toc: false
+---
 
 Since the start of 2017, I had been thinking about having my own domain name and personal blog. [A](https://laymonage.com/) [few](https://yukiisbo.red/) [friends](https://refeed.github.io/) of mine have one, so I think having one would also be cool. I planned to have a static site real quick using either [jekyll](https://jekyllrb.com/) or [pelican](https://blog.getpelican.com/), then buy one cheap domain name so I can tie them using something like [Cloudflare](https://www.cloudflare.com/) or [Netifly](https://www.netlify.com/).
 
