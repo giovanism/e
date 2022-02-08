@@ -2,6 +2,17 @@
 baseURL: https://giovanis.me/
 # Controls site language
 languageCode: en-us
+# Set Multilingual mode
+defaultContentLanguage: en
+languages:
+  en:
+    weight: 1
+    contentDir: content/en
+    languageName: English
+  id:
+    weight: 2
+    contentDir: content/id
+    languageName: Bahasa Indonesia
 # Homepage title and page title suffix
 title: giovanism
 # Number of posts to show before paginating
