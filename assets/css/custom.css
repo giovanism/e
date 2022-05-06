@@ -19,7 +19,14 @@ a[itemprop="url"]:hover {
   color: #e0e0e0;
 }
 
-/* Style override stuff */
+.hack > header {
+  display: grid;
+  grid-template-columns: 1fr minmax(min-content, auto);
+  column-gap: 20px;
+  grid-template-areas: "nav nav";
+}
+
+/* Font style override stuff */
 
 .hack, .hack blockquote, .hack em, .hack strong {
   font-family: Zilla Slab, Roboto Slab, Georgia, Times, serif;
