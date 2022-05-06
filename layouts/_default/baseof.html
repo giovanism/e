@@ -1,5 +1,5 @@
 {{/*
-Copyright (C) 2019  Josh Habdas <jhabdas@protonmail.com>
+Copyright (C) 2019, 2022  VHS <vhsdev@tutanota.com>
 
 This file is part of After Dark.
 
@@ -33,6 +33,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     {{ if or (in $noindex_kinds .Kind) ($is_noindex_true) }}
       <meta name="robots" content="noindex">
     {{ end }}
+    <base href="{{ .Site.BaseURL }}" />
     {{ template "_internal/opengraph.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
     {{ partial "meta/ogimage-maybe.html" . }}
@@ -41,12 +42,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
       {{ partial "meta/verifications.html" . }}
     {{ end }}
     {{ partial "meta/http-referrer.html" . }}
-    {{ $import := resources.Get "/js/vendor/fetch-inject.min.js" }}
+    {{ $highlights := findRE "class\\s*?=\\s*?\".*?\\bhighlight\\b.*?\"|class\\s*?=\\s*?highlight\\b" .Content }}
+    {{ if ge (len $highlights) 1 }}
+      <script type="module">
+        import fetchInject from '{{ "/js/modules/fetch-inject.min.js" | relURL }}';
+        fetchInject(['{{ "/css/syntax.css" | relURL }}']);
+      </script>
+      <noscript>
+        <link href="{{ "/css/syntax.css" | relURL }}" rel="stylesheet">
+      </noscript>
+    {{ end }}
     {{ $baseof := resources.Get "/js/baseof.js" | resources.ExecuteAsTemplate "baseof.js" . }}
-    <script integrity="{{ ($import | resources.Fingerprint "sha512").Data.Integrity }}">
-      {{- $import.Content | safeJS -}}
-    </script>
-    <script integrity="{{ ($baseof | resources.Fingerprint "sha512").Data.Integrity }}">
+    <script type="module" integrity="{{ ($baseof | resources.Fingerprint "sha512").Data.Integrity }}">
       {{- $baseof.Content | safeJS -}}
     </script>
     {{ partial "head/modules.html" . }}
@@ -62,13 +69,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     {{ end }}
     {{ partial "head/favicon.html" . }}
     {{ partial "global-styles.html" . }}
-    {{ $highlights := findRE "class\\s*?=\\s*?\".*?\\bhighlight\\b.*?\"|class\\s*?=\\s*?highlight\\b" .Content }}
-    {{ if ge (len $highlights) 1 }}
-      <script integrity="sha512-ISTAV0GadOIz/NXXHOS+eCM0ysXVVHhQTlvA6LJxz/DeA5yIxm0Vqf5IE+WH0yuuXkayAKtoZkQ326nch5f/fg==">fetchInject([{{ "/css/syntax.css" | relURL }}]);</script>
-      <noscript>
-        <link href="{{ "/css/syntax.css" | relURL }}" rel="stylesheet">
-      </noscript>
-    {{ end }}
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fantasque-sans-mono" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     {{ if not (in (.Site.BaseURL | string) "localhost") }}
       {{ template "_internal/google_analytics.html" . }}
     {{ end }}
