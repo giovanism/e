@@ -9,6 +9,7 @@ categories:
 tags:
 - computer
 - git
+- youtube
 images:
 # overrides the site-wide open graph image
 - https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ASR-33_at_CHM.agr.jpg/800px-ASR-33_at_CHM.agr.jpg
