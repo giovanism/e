@@ -16,7 +16,8 @@ languages:
 # Homepage title and page title suffix
 title: giovanism
 # Number of posts to show before paginating
-paginate: 11
+pagination:
+  pagerSize: 11
 
 theme:
   - fractal-forest
