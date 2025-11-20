@@ -24,8 +24,6 @@ theme:
 
 # Suggested, enable robots.txt file
 enableRobotsTXT: true
-# Optional, add tracking Id for analytics
-googleAnalytics: UA-159117526-1
 # Optional, add Disqus shortname for comments
 disqusShortname: ''
 # Enable menu system for lazy bloggers
